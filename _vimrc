@@ -123,7 +123,7 @@ filetype plugin on
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/vundle/
 call vundle#rc()
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
