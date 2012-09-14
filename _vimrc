@@ -5,7 +5,7 @@ set background=dark
 "set term=builtin_linux
 "set ttytype=builtin_linux
 set t_Co=256
-colorscheme desert
+"colorscheme desert
 
 
 if has("syntax")
@@ -129,4 +129,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
+Bundle 'tomasr/molokai'
 filetype plugin indent on     " required!
+
+colorscheme molokai
