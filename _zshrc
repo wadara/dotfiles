@@ -55,8 +55,8 @@ setopt share_history
 setopt correct
 setopt brace_ccl
 #ls color
-alias ls='ls -G'
-alias la='ls -alFG'
+alias ls='ls --color=auto'
+alias la='ls -alF --color=auto'
 #'for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo';
 #compctl
 compctl -f vim
@@ -64,3 +64,4 @@ compctl -/ cd
 compctl -F man
 #
 alias ..='cd ..'
+alias ctags='nocorrect ctags'
