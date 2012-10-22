@@ -130,6 +130,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
+Bundle 'tsaleh/vim-align'
 filetype plugin indent on     " required!
 
 colorscheme molokai
