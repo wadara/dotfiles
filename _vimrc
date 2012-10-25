@@ -142,3 +142,6 @@ au BufRead,BufNewFile *.hydla set filetype=hydla
 let g:neocomplcache_snippets_dir='~/.vim/snippets'
 imap <TAB> <Plug>(neocomplcache_snippets_expand)
 smap <TAB> <Plug>(neocomplcache_snippets_expand)
+
+"auto template
+autocmd BufNewFile * silent! 0r $HOME/.vim/templates/%:e.tpl
