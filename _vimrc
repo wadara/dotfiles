@@ -126,6 +126,7 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache-snippets-complete'
 Bundle 'Shougo/unite.vim'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
@@ -134,3 +135,11 @@ Bundle 'tsaleh/vim-align'
 filetype plugin indent on     " required!
 
 colorscheme molokai
+
+" hydla
+" ---------------------------------------
+au BufRead,BufNewFile *.hydla set filetype=hydla
+" snippets
+let g:neocomplcache_snippets_dir='~/.vim/snippets'
+imap <TAB> <Plug>(neocomplcache_snippets_expand)
+smap <TAB> <Plug>(neocomplcache_snippets_expand)
