@@ -126,11 +126,12 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplcache-snippets-complete'
+Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/unite.vim'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
+Bundle 'tsaleh/vim-align'
 filetype plugin indent on     " required!
 
 colorscheme molokai
