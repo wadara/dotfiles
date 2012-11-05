@@ -54,13 +54,18 @@ setopt print_eight_bit
 setopt share_history
 setopt correct
 setopt brace_ccl
-#ls color
-alias ls='ls -G'
-alias la='ls -alFG'
 #'for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo';
 #compctl
 compctl -f vim
 compctl -/ cd
 compctl -F man
-#
+# alias
 alias ..='cd ..'
+alias ls='ls --color=auto'
+alias la='ls -alF --color=auto'
+# insert `date` for YYYYMMDD on F5
+ function insert_date {
+   LBUFFER=$LBUFFER'$(date +%Y%m%d)'
+   }
+   zle -N insert_date
+   bindkey '^]' insert_date
