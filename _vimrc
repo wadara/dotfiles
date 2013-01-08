@@ -130,6 +130,21 @@ Bundle 'Shougo/unite.vim'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
+Bundle 'glidenote/memolist.vim'
 filetype plugin indent on     " required!
 
 colorscheme molokai
+
+" for macVim
+if has('gui_macvim')
+    set transparency=3
+    set guifont=Monaco:h18
+    set lines=90 columns=200
+    set guioptions-=T
+endif
+
+"for memolist
+map <Leader>mn  :MemoNew<CR>
+map <Leader>ml  :MemoList<CR>
+map <Leader>mg  :MemoGrep<CR>
+let g:memolist_path = "~/Dropbox/memo"
