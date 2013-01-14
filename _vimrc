@@ -81,7 +81,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 
 " ステータスライン
 "----------------------------------------
-set number
+set nonumber
 set laststatus=2
 " set statusline=\[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}\]\ %<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c%V%8P
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
@@ -102,7 +102,6 @@ set display=lastline
 "----------------------------------------
 inoremap <F5> <C-r>=strftime('%Y%m%d')<CR>
 inoremap <F6> <C-r>=strftime('%Y%m%d-%H%M')<CR>
-
 
 " complcache
 "----------------------------------------
@@ -132,6 +131,8 @@ Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
 Bundle 'tsaleh/vim-align'
+Bundle 'taglist.vim'
+Bundle 'surround.vim'
 filetype plugin indent on     " required!
 
 colorscheme molokai
@@ -144,5 +145,20 @@ let g:neocomplcache_snippets_dir='~/.vim/snippets'
 imap <TAB> <Plug>(neocomplcache_snippets_expand)
 smap <TAB> <Plug>(neocomplcache_snippets_expand)
 
+<<<<<<< HEAD
 " auto templete
 autocmd BufNewFile * silent! 0r $HOME/.vim/templates/%:e.tpl
+=======
+"auto template
+autocmd BufNewFile * silent! 0r $HOME/.vim/templates/%:e.tpl
+
+"矢印禁止
+map <UP> <ESC>
+map! <UP> <ESC>
+map <DOWN> <ESC>
+map! <DOWN> <ESC>
+map <LEFT> <ESC>
+map! <LEFT> <ESC>
+map <RIGHT> <ESC>
+map! <RIGHT> <ESC>
+>>>>>>> c982ad851b7d492ce52e9c324f9ae7b656603794
