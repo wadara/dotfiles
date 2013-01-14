@@ -42,7 +42,7 @@ colors
 #PROMPT="%{${fg[yellow]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
 PROMPT="%F{214}[%n@%m] %(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
-SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+#SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
 #PROMPT="%n@%m: %~$ "
 #PROMPT2="%_%% "
@@ -55,8 +55,8 @@ setopt share_history
 setopt correct
 setopt brace_ccl
 #ls color
-alias ls='ls -G'
-alias la='ls -alF -G'
+alias ls='ls --color=auto -G'
+alias la='ls -alF --color=auto -G'
 #'for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo';
 #compctl
 compctl -f vim
@@ -65,3 +65,4 @@ compctl -F man
 #
 alias ..='cd ..'
 alias ctags='nocorrect ctags'
+alias evim='vim ~/.vimrc'
