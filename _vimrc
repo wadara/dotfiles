@@ -145,10 +145,6 @@ let g:neocomplcache_snippets_dir='~/.vim/snippets'
 imap <TAB> <Plug>(neocomplcache_snippets_expand)
 smap <TAB> <Plug>(neocomplcache_snippets_expand)
 
-<<<<<<< HEAD
-" auto templete
-autocmd BufNewFile * silent! 0r $HOME/.vim/templates/%:e.tpl
-=======
 "auto template
 autocmd BufNewFile * silent! 0r $HOME/.vim/templates/%:e.tpl
 
@@ -161,4 +157,3 @@ map <LEFT> <ESC>
 map! <LEFT> <ESC>
 map <RIGHT> <ESC>
 map! <RIGHT> <ESC>
->>>>>>> c982ad851b7d492ce52e9c324f9ae7b656603794
