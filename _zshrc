@@ -39,14 +39,14 @@ compinit
 #プロンプトの設定
 autoload colors
 colors
-#PROMPT="%{${fg[yellow]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
-PROMPT="%F{214}[%n@%m] %(!.#.$) %{${reset_color}%}"
-PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
-#SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+autoload -Uz vcs_info
+precmd() {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  psvar[1]=$vcs_info_msg_0_
+}
+PROMPT=$'%F{214}[%n@%m]%f%1v\n%# '
 RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
-#PROMPT="%n@%m: %~$ "
-#PROMPT2="%_%% "
-#SPROMPT="%r is correct? [n,y,a,e]: "
 setopt magic_equal_subst
 setopt hist_verify
 setopt numeric_glob_sort
