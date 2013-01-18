@@ -81,7 +81,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 
 " ステータスライン
 "----------------------------------------
-set number
+set nonumber
 set laststatus=2
 " set statusline=\[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}\]\ %<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c%V%8P
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
@@ -132,6 +132,7 @@ Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
 Bundle 'tsaleh/vim-align'
+Bundle 'glidenote/memolist.vim'
 filetype plugin indent on     " required!
 
 colorscheme molokai
@@ -143,3 +144,9 @@ au BufRead,BufNewFile *.hydla set filetype=hydla
 let g:neocomplcache_snippets_dir='~/.vim/snippets'
 imap <TAB> <Plug>(neocomplcache_snippets_expand)
 smap <TAB> <Plug>(neocomplcache_snippets_expand)
+
+" for memolist
+map <Leader>mn  :MemoNew<CR>
+map <Leader>ml  :MemoList<CR>
+map <Leader>mg  :MemoGrep<CR>
+let g:memolist_path = "~/Dropbox/memo"

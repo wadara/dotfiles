@@ -39,7 +39,7 @@ compinit
 #プロンプトの設定
 autoload colors
 colors
-#PROMPT="%{${fg[yellow]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
+PROMPT="%{${fg[yellow]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
 PROMPT="%F{214}[%n@%m] %(!.#.$) %{${reset_color}%}"
 PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
@@ -65,3 +65,9 @@ compctl -F man
 #
 alias ..='cd ..'
 alias ctags='nocorrect ctags'
+alias evim='vim ~/.vimrc'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
