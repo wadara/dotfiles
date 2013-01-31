@@ -39,14 +39,14 @@ compinit
 #プロンプトの設定
 autoload colors
 colors
-PROMPT="%{${fg[yellow]}%}[%n@%m] %(!.#.$) %{${reset_color}%}"
-PROMPT="%F{214}[%n@%m] %(!.#.$) %{${reset_color}%}"
-PROMPT2="%{${fg[blue]}%}%_> %{${reset_color}%}"
-SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+autoload -Uz vcs_info
+precmd() {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  psvar[1]=$vcs_info_msg_0_
+}
+PROMPT=$'%F{214}[%n@%m]%f%1v\n%# '
 RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
-#PROMPT="%n@%m: %~$ "
-#PROMPT2="%_%% "
-#SPROMPT="%r is correct? [n,y,a,e]: "
 setopt magic_equal_subst
 setopt hist_verify
 setopt numeric_glob_sort
@@ -54,16 +54,20 @@ setopt print_eight_bit
 setopt share_history
 setopt correct
 setopt brace_ccl
-#ls color
-alias ls='ls -G'
-alias la='ls -alF -G'
-#'for c in {016..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($((c-16))%6)) -eq 5 ] && echo;done;echo';
 #compctl
 compctl -f vim
 compctl -/ cd
 compctl -F man
-#
+# alias
 alias ..='cd ..'
+alias ls='ls -G'
+alias la='ls -alF -G'
+# insert `date` for YYYYMMDD on F5
+ function insert_date {
+   LBUFFER=$LBUFFER'$(date +%Y%m%d)'
+   }
+   zle -N insert_date
+   bindkey '^]' insert_date
 alias ctags='nocorrect ctags'
 alias evim='vim ~/.vimrc'
 

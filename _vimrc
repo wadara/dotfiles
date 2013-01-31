@@ -1,3 +1,7 @@
+" for MacVim
+if has('gui_macvim')
+  map ¥ <Leader>
+endif
 " ハイライト
 "----------------------------------------
 syntax enable
@@ -103,7 +107,6 @@ set display=lastline
 inoremap <F5> <C-r>=strftime('%Y%m%d')<CR>
 inoremap <F6> <C-r>=strftime('%Y%m%d-%H%M')<CR>
 
-
 " complcache
 "----------------------------------------
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
@@ -133,6 +136,9 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
 Bundle 'tsaleh/vim-align'
 Bundle 'glidenote/memolist.vim'
+Bundle 'taglist.vim'
+Bundle 'surround.vim'
+Bundle 'Shougo/vimfiler'
 filetype plugin indent on     " required!
 
 colorscheme molokai
@@ -150,3 +156,18 @@ map <Leader>mn  :MemoNew<CR>
 map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
 let g:memolist_path = "~/Dropbox/memo"
+"auto template
+autocmd BufNewFile * silent! 0r $HOME/.vim/templates/%:e.tpl
+
+"矢印禁止
+map <UP> <ESC>
+map! <UP> <ESC>
+map <DOWN> <ESC>
+map! <DOWN> <ESC>
+map <LEFT> <ESC>
+map! <LEFT> <ESC>
+map <RIGHT> <ESC>
+map! <RIGHT> <ESC>
+
+" vimfiler 
+nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
