@@ -173,3 +173,5 @@ map! <RIGHT> <ESC>
 
 " vimfiler 
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+" power line
+let g:Powerline_symbols = 'fancy'
