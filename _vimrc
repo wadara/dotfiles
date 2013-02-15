@@ -139,6 +139,8 @@ Bundle 'glidenote/memolist.vim'
 Bundle 'taglist.vim'
 Bundle 'surround.vim'
 Bundle 'Shougo/vimfiler'
+Bundle 'tyru/open-browser.vim'
+Bundle 'Lokaltog/vim-powerline'
 filetype plugin indent on     " required!
 
 colorscheme molokai
