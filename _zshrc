@@ -60,8 +60,16 @@ compctl -/ cd
 compctl -F man
 # alias
 alias ..='cd ..'
-alias ls='ls -G'
-alias la='ls -alF -G'
+case "${OSTYPE}" in
+  darwin*)
+  alias ls='ls -G'
+  alias la='ls -alF -G'
+  ;;  
+  linux*)
+  alias ls='ls --color=auto'
+  alias la='ls -alF --color=auto'
+    ;;  
+esac
 # insert `date` for YYYYMMDD on F5
  function insert_date {
    LBUFFER=$LBUFFER'$(date +%Y%m%d)'
