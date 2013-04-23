@@ -126,11 +126,13 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/unite.vim'
 Bundle 'thinca/vim-ref'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tomasr/molokai'
 Bundle 'glidenote/memolist.vim'
+Bundle 'tsaleh/vim-align'
 filetype plugin indent on     " required!
 
 colorscheme molokai
@@ -148,3 +150,10 @@ map <Leader>mn  :MemoNew<CR>
 map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
 let g:memolist_path = "~/Dropbox/memo"
+" hydla
+" ---------------------------------------
+au BufRead,BufNewFile *.hydla set filetype=hydla
+" snippets
+let g:neocomplcache_snippets_dir='~/.vim/snippets'
+imap <TAB> <Plug>(neocomplcache_snippets_expand)
+smap <TAB> <Plug>(neocomplcache_snippets_expand)
