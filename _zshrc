@@ -60,8 +60,8 @@ compctl -/ cd
 compctl -F man
 # alias
 alias ..='cd ..'
-alias ls='ls -G'
-alias la='ls -alF -G'
+alias ls='ls -G --color'
+alias la='ls -alF -G --color'
 # insert `date` for YYYYMMDD on F5
  function insert_date {
    LBUFFER=$LBUFFER'$(date +%Y%m%d)'
@@ -75,3 +75,5 @@ alias evim='vim ~/.vimrc'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# for tmux
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
