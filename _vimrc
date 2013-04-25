@@ -141,6 +141,8 @@ Bundle 'surround.vim'
 Bundle 'Shougo/vimfiler'
 Bundle 'tyru/open-browser.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
 filetype plugin indent on     " required!
 
 colorscheme molokai
