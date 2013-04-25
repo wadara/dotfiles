@@ -3,4 +3,4 @@
 	url = git://github.com/gmarik/vundle.git
 [submodule "tmuxfiles/tmux-powerline"]
 	path = tmuxfiles/tmux-powerline
-	url = git://github.com/erikw/tmux-powerline.git
+	url = git@github.com:erikw/tmux-powerline.git
