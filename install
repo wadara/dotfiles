@@ -4,4 +4,3 @@ ln -s ~/dotfiles/vimfiles ~/.vim
 ln -s ~/dotfiles/tmuxfiles ~/.tmux
 ln -s ~/dotfiles/_tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/_tmux-powerlinerc ~/.tmux-powerlinerc
-ln -s ~/dotfiles/tmuxmytheme.sh ~/dotfiles/tmuxfiles/tmux-powerline/themes/mytheme.sh
