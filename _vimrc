@@ -123,26 +123,36 @@ filetype plugin on
 
 " bundle
 " ---------------------------------------
-set nocompatible
 filetype off
 
-set rtp+=~/.vim/vundle/
-call vundle#rc()
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/unite.vim'
-Bundle 'thinca/vim-ref'
-Bundle 'thinca/vim-quickrun'
-Bundle 'tomasr/molokai'
-Bundle 'tsaleh/vim-align'
-Bundle 'glidenote/memolist.vim'
-Bundle 'taglist.vim'
-Bundle 'surround.vim'
-Bundle 'Shougo/vimfiler'
-Bundle 'tyru/open-browser.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
+set nocompatible               " Be iMproved
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'tsaleh/vim-align'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'tyru/open-browser.vim'
+"NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'taichouchou2/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 filetype plugin indent on     " required!
 
 colorscheme molokai
