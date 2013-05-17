@@ -64,6 +64,7 @@ case "${OSTYPE}" in
   darwin*)
   alias ls='ls -G'
   alias la='ls -alF -G'
+  export PATH=Library/Python/2.7/bin:$PATH
   ;;  
   linux*)
   alias ls='ls --color=auto'

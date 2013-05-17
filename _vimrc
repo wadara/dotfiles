@@ -93,7 +93,7 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%0
 " エンコーディング
 "----------------------------------------
 set termencoding=utf-8
-set fileencodings=iso-2022-jp-3,iso-2022-jp,enc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932
+set fileencodings=iso-2022-jp-3,iso-2022-jp,enc-jisx0213,utf-8,ucs-bom,cp932
 set fenc=utf-8
 " set enc=utf-8
 
@@ -187,3 +187,7 @@ map! <RIGHT> <ESC>
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 " power line
 let g:Powerline_symbols = 'fancy'
+
+"
+noremap ; :
+noremap : ;
