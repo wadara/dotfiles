@@ -112,7 +112,10 @@ inoremap <F6> <C-r>=strftime('%Y%m%d-%H%M')<CR>
 "----------------------------------------
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
 "
-set clipboard=unnamed,autoselect
+set clipboard=autoselect
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 "
 "helptags ~/.vim/doc
 

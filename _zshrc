@@ -64,7 +64,8 @@ case "${OSTYPE}" in
   darwin*)
   alias ls='ls -G'
   alias la='ls -alF -G'
-  export PATH=Library/Python/2.7/bin:$PATH
+  #export PATH=Library/Python/2.7/bin:$PATH
+  export PATH=.vim/bundle/powerline/scripts:$PATH
   ;;  
   linux*)
   alias ls='ls --color=auto'
@@ -79,6 +80,9 @@ esac
    bindkey '^]' insert_date
 alias ctags='nocorrect ctags'
 alias evim='vim ~/.vimrc'
+alias ezsh='vim ~/.zshrc'
+alias szsh='source ~/.zshrc'
+alias debian='ssh debian'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
