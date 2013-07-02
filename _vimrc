@@ -11,6 +11,7 @@ set background=dark
 set t_Co=256
 "colorscheme desert
 
+let mapleader = '\'
 
 if has("syntax")
 	function! ActivateInvisibleIndicator()
@@ -93,7 +94,7 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%0
 " エンコーディング
 "----------------------------------------
 set termencoding=utf-8
-set fileencodings=iso-2022-jp-3,iso-2022-jp,enc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932
+set fileencodings=iso-2022-jp-3,iso-2022-jp,enc-jisx0213,utf-8,ucs-bom,cp932
 set fenc=utf-8
 " set enc=utf-8
 
@@ -111,7 +112,10 @@ inoremap <F6> <C-r>=strftime('%Y%m%d-%H%M')<CR>
 "----------------------------------------
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
 "
-set clipboard=unnamed,autoselect
+set clipboard=autoselect
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 "
 "helptags ~/.vim/doc
 
@@ -151,8 +155,10 @@ NeoBundle 'tyru/open-browser.vim'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'taichouchou2/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+
 filetype plugin indent on     " required!
 
 colorscheme molokai
@@ -200,3 +206,34 @@ map! <RIGHT> <ESC>
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 " power line
 let g:Powerline_symbols = 'fancy'
+
+"
+noremap ; :
+noremap : ;
+
+
+""" unite.vim
+" 入力モードで開始する
+" let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
