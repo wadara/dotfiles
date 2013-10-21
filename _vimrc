@@ -163,10 +163,12 @@ NeoBundle 'msanders/cocoa.vim'
 "NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'mhinz/vim-startify'
 
 filetype plugin indent on     " required!
 
-colorscheme landscape
+colorscheme railscasts
 
 " hydla
 " ---------------------------------------
@@ -238,4 +240,11 @@ let g:airline#extensions#branch#symbol = ' '
 let g:airline#extensions#readonly#symbol = ''
 let g:airline_linecolumn_prefix = ' '
 
+"quick run
+let g:quickrun_config = {
+\   "c" : {
+\       "exec" : ['gcc -std=c99 %s', './a.out']
+\   },
+\}
 
+let g:ref_phpmanual_path = $HOME . '/.vim/refs/php-chunked-xhtml'
