@@ -60,7 +60,6 @@ compctl -/ cd
 compctl -F man
 # alias
 alias ..='cd ..'
-alias dotfiles='cd ~/dotfiles'
 case "${OSTYPE}" in
   darwin*)
   alias ls='ls -G'
@@ -84,6 +83,10 @@ alias evim='vim ~/.vimrc'
 alias ezsh='vim ~/.zshrc'
 alias szsh='source ~/.zshrc'
 alias debian='ssh debian'
+alias dotfiles='cd ~/dotfiles'
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit -m'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
