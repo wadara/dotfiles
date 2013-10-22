@@ -165,6 +165,8 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'mhinz/vim-startify'
+NeoBundle 'vol2223/vim-colorblind-colorscheme'
+NeoBundle 'rbtnn/puyo.vim'
 
 filetype plugin indent on     " required!
 
@@ -248,3 +250,10 @@ let g:quickrun_config = {
 \}
 
 let g:ref_phpmanual_path = $HOME . '/.vim/refs/php-chunked-xhtml'
+
+imap {} {}<Left>
+imap [] []<Left>
+imap () ()<Left>
+imap "" ""<Left>
+imap '' ''<Left>
+imap <> <><Left>
