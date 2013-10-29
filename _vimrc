@@ -167,6 +167,8 @@ NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'vol2223/vim-colorblind-colorscheme'
 NeoBundle 'rbtnn/puyo.vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 
 filetype plugin indent on     " required!
 
