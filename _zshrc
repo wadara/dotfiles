@@ -83,6 +83,10 @@ alias evim='vim ~/.vimrc'
 alias ezsh='vim ~/.zshrc'
 alias szsh='source ~/.zshrc'
 alias debian='ssh debian'
+alias dotfiles='cd ~/dotfiles'
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit -m'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -92,3 +96,11 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 [ -f ~/.zshrc.include ] && source ~/.zshrc.include # 設定ファイルのinclude
+
+#=============================
+# source zsh-syntax-highlighting
+#=============================
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+

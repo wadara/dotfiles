@@ -64,7 +64,7 @@ set title
 set ruler
 set wildmenu
 set formatoptions+=mM
-set ambiwidth=double
+"set ambiwidth=double
 let g:indent_guides_enable_on_vim_startup = 0
 
 set expandtab ts=2 sw=2 sts=2
@@ -89,7 +89,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 set nonumber
 set laststatus=2
 " set statusline=\[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}\]\ %<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c%V%8P
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " エンコーディング
 "----------------------------------------
@@ -156,12 +156,23 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'taichouchou2/alpaca_powertabline'
-NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'msanders/cocoa.vim'
+"NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+"NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'mhinz/vim-startify'
+NeoBundle 'vol2223/vim-colorblind-colorscheme'
+NeoBundle 'rbtnn/puyo.vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 
 filetype plugin indent on     " required!
 
-colorscheme molokai
+colorscheme railscasts
 
 " for macVim
 if has('gui_macvim')
@@ -205,7 +216,7 @@ map! <RIGHT> <ESC>
 " vimfiler 
 nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 " power line
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
 
 "
 noremap ; :
@@ -237,3 +248,27 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline#extensions#branch#symbol = ' '
+let g:airline#extensions#readonly#symbol = ''
+let g:airline_linecolumn_prefix = ' '
+
+"quick run
+let g:quickrun_config = {
+\   "c" : {
+\       "exec" : ['gcc -std=c99 %s', './a.out']
+\   },
+\}
+
+let g:ref_phpmanual_path = $HOME . '/.vim/refs/php-chunked-xhtml'
+
+imap {} {}<Left>
+imap [] []<Left>
+imap () ()<Left>
+imap "" ""<Left>
+imap '' ''<Left>
+imap <> <><Left>
