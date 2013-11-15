@@ -179,8 +179,13 @@ colorscheme railscasts
 au BufRead,BufNewFile *.hydla set filetype=hydla
 " snippets
 let g:neocomplcache_snippets_dir='~/.vim/snippets'
-imap <TAB> <Plug>(neocomplcache_snippets_expand)
-smap <TAB> <Plug>(neocomplcache_snippets_expand)
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 
 " for memolist
 map <Leader>mn  :MemoNew<CR>
@@ -259,3 +264,5 @@ imap () ()<Left>
 imap "" ""<Left>
 imap '' ''<Left>
 imap <> <><Left>
+
+set term=screen-256color
