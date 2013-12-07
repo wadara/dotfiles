@@ -108,25 +108,6 @@ set display=lastline
 inoremap <F5> <C-r>=strftime('%Y%m%d')<CR>
 inoremap <F6> <C-r>=strftime('%Y%m%d-%H%M')<CR>
 
-" complcache
-"----------------------------------------
-if neobundle#is_installed('neocomplete')
-  "neocomplete
- let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_ignore_case = 1
-    let g:neocomplete#enable_smart_case = 1
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns._ = '\h\w*'
-elseif neobundle#is_installed('neocomplcache')
-  let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-endif
-" clipboard
-set clipboard=autoselect
-if $TMUX == ''
-    set clipboard+=unnamed
-endif
 "
 "helptags ~/.vim/doc
 
@@ -184,6 +165,26 @@ NeoBundle 'ujihisa/unite-colorscheme'
 filetype plugin indent on     " required!
 
 colorscheme railscasts
+
+" complcache
+"----------------------------------------
+if neobundle#is_installed('neocomplete')
+  "neocomplete
+ let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_ignore_case = 1
+    let g:neocomplete#enable_smart_case = 1
+    if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+    endif
+    let g:neocomplete#keyword_patterns._ = '\h\w*'
+elseif neobundle#is_installed('neocomplcache')
+  let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+endif
+" clipboard
+set clipboard=autoselect
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 
 " for macVim
 if has('gui_macvim')
