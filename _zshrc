@@ -116,3 +116,9 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 }
+#dir colors
+eval $(gdircolors -b ~/.zsh/dircolors-solarized/dircolors.ansi-universal)
+if [ -n "$LS_COLORS" ]; then
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+
