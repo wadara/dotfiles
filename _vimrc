@@ -108,14 +108,6 @@ set display=lastline
 inoremap <F5> <C-r>=strftime('%Y%m%d')<CR>
 inoremap <F6> <C-r>=strftime('%Y%m%d-%H%M')<CR>
 
-" complcache
-"----------------------------------------
-let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-"
-set clipboard=autoselect
-if $TMUX == ''
-    set clipboard+=unnamed
-endif
 "
 "helptags ~/.vim/doc
 
@@ -140,7 +132,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-ref'
@@ -174,6 +166,39 @@ filetype plugin indent on     " required!
 
 colorscheme railscasts
 
+" complcache
+"----------------------------------------
+if neobundle#is_installed('neocomplete')
+  "neocomplete
+ let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_ignore_case = 1
+    let g:neocomplete#enable_smart_case = 1
+    if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+    endif
+    let g:neocomplete#keyword_patterns._ = '\h\w*'
+elseif neobundle#is_installed('neocomplcache')
+  let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
+endif
+" clipboard
+set clipboard=autoselect
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
+
+" for macVim
+if has('gui_macvim')
+    set transparency=3
+    set guifont=Monaco:h18
+    set lines=90 columns=200
+    set guioptions-=T
+endif
+
+"for memolist
+map <Leader>mn  :MemoNew<CR>
+map <Leader>ml  :MemoList<CR>
+map <Leader>mg  :MemoGrep<CR>
+let g:memolist_path = "~/Dropbox/memo"
 " hydla
 " ---------------------------------------
 au BufRead,BufNewFile *.hydla set filetype=hydla
