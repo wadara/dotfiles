@@ -47,6 +47,7 @@ precmd() {
 }
 PROMPT=$'%F{214}[%n@%m]%f%1v\n%# '
 RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+RPROMPT="%F{120}[%~]%{${reset_color}%}"
 setopt magic_equal_subst
 setopt hist_verify
 setopt numeric_glob_sort
@@ -62,9 +63,8 @@ compctl -F man
 alias ..='cd ..'
 case "${OSTYPE}" in
   darwin*)
-  alias ls='ls -G'
-  alias la='ls -alF -G'
-  #export PATH=Library/Python/2.7/bin:$PATH
+  alias ls='gls --color'
+  alias la='gls -alF --color'
   export PATH=.vim/bundle/powerline/scripts:$PATH
   ;;  
   linux*)
@@ -104,3 +104,15 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+export MANPAGER='less -R'
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}

@@ -266,3 +266,5 @@ imap '' ''<Left>
 imap <> <><Left>
 
 set term=screen-256color
+set formatoptions+=mM
+set textwidth=80
