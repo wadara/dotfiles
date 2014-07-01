@@ -48,8 +48,8 @@ set iminsert=0 imsearch=0
 "----------------------------------------
 augroup cch
 autocmd! cch
-autocmd WinLeave * set nocursorcolumn nocursorline
-autocmd WinEnter,BufRead * set cursorcolumn cursorline
+"autocmd WinLeave * set nocursorcolumn nocursorline
+"autocmd WinEnter,BufRead * set cursorcolumn cursorline
 augroup END
 
 
@@ -68,7 +68,8 @@ set formatoptions+=mM
 let g:indent_guides_enable_on_vim_startup = 0
 
 set expandtab ts=2 sw=2 sts=2
-set list listchars=tab:>\-,eol:$,trail:*
+set list listchars=tab:>\-,eol:$,trail:_
+autocmd BufNew,BufRead *.java set ts=2 sw=2 sts=2
 autocmd BufNew,BufRead *.rb set ts=2 sw=2 sts=2
 autocmd BufNew,BufRead *.erb set ts=2 sw=2 sts=2
 autocmd BufNew,BufRead *.html set ts=2 sw=2 sts=2
@@ -94,7 +95,7 @@ set laststatus=2
 " エンコーディング
 "----------------------------------------
 set termencoding=utf-8
-set fileencodings=iso-2022-jp-3,iso-2022-jp,enc-jisx0213,utf-8,ucs-bom,cp932
+set fileencodings=utf-8,iso-2022-jp-3,iso-2022-jp,enc-jisx0213,ucs-bom,cp932
 set fenc=utf-8
 " set enc=utf-8
 
@@ -134,10 +135,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'taglist.vim'
@@ -161,10 +167,14 @@ NeoBundle 'vol2223/vim-colorblind-colorscheme'
 NeoBundle 'rbtnn/puyo.vim'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'othree/html5'
+NeoBundle 'gre/play2vim'
+NeoBundle 'mattn/emmet-vim'
 
 filetype plugin indent on     " required!
 
-colorscheme railscasts
+colorscheme hybrid
 
 " complcache
 "----------------------------------------
@@ -242,7 +252,7 @@ noremap : ;
 
 """ unite.vim
 " 入力モードで開始する
-" let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=1
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
@@ -292,4 +302,4 @@ imap <> <><Left>
 
 set term=screen-256color
 set formatoptions+=mM
-set textwidth=80
+"set textwidth=80

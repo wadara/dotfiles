@@ -4,3 +4,4 @@ ln -s ~/dotfiles/_vimrc ~/.vimrc
 ln -s ~/dotfiles/vimfiles ~/.vim
 ln -s ~/dotfiles/tmuxfiles ~/.tmux
 ln -s ~/dotfiles/_tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/_tigrc ~/.tigrc
