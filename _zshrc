@@ -131,3 +131,6 @@ cdls ()
 }
 alias cd="cdls"
 
+
+# zsh-bd
+. $HOME/.zsh/plugins/zsh-bd/bd.zsh
