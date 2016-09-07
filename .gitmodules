@@ -7,3 +7,6 @@
 [submodule "zshfiles/dircolors-solarized"]
 	path = zshfiles/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
+[submodule "zshfiles/plugins/zsh-bd"]
+	path = zshfiles/plugins/zsh-bd
+	url = https://github.com/Tarrasch/zsh-bd
