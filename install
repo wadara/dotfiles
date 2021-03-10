@@ -1,7 +1,16 @@
-ln -s ~/dotfiles/_zshrc ~/.zshrc
-ln -s ~/dotfiles/zshfiles ~/.zsh
-ln -s ~/dotfiles/_vimrc ~/.vimrc
-ln -s ~/dotfiles/vimfiles ~/.vim
-ln -s ~/dotfiles/tmuxfiles ~/.tmux
-ln -s ~/dotfiles/_tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/_tigrc ~/.tigrc
+#!/bin/sh
+VIMRC_FILE=~/.vimrc
+if [ -f ${VIMRC_FILE} ]; then
+  echo ${VIMRC_FILE} exists
+else
+  ln -s ~/dotfiles/vimrc ${VIMRC_FILE} 
+fi
+mkdir -p ~/.vim/autoload
+curl --create-dirs -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+mkdir -p ~/.vim/bundle
+ALIGN_DIR=~/.vim/bundle/align.vim
+if [ -d ${ALIGN_DIR} ]; then
+  echo ${ALIGN_DIR} exists
+else
+  git clone https://github.com/vim-scripts/Align ${ALIGN_DIR}
+fi
